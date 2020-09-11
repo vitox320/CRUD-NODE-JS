@@ -10,22 +10,27 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <h2 style="text-align: center;">Registros<h2>
-        <table border="1" class="table">
-            <thead >
-                <tr>
-                    <td class="col">Nome</td>
-                    <td class="col">email</td>
-                    <td class="col">cpf</td>
-                    <td class="col">telefone</td>
-                    <td class="col">endereco</td>
-                    <td class="col">cidade</td>
-                    <td class="col">estado</td>
-                    <td class="col">sexo</td>
-                    <td>Ações</td>
-                </tr>
-            </thead>
-            <tbody>
+   
+      <div class="container">
+        <div style="text-align: center;">
+        <h2>Registros</h2>
+        <p>Todos os usuários cadastrados no nosso banco de dados</p>            
+      </div>
+        <table  class="table">
+          <thead>
+            <tr>
+              <th >Nome</th>
+              <th >email</th>
+              <th >cpf</th>
+              <th >telefone</th>
+              <th >endereco</th>
+              <th >cidade</th>
+              <th >estado</th>
+              <th >sexo</th>
+              <th>Ações</th>
+          </tr>
+          </thead>
+          <tbody>
             <% data.forEach(function(details) { %>
                 <tr>
                     <td><%= details.nome %></td>
@@ -41,9 +46,10 @@
                 <% }) %>
             </tbody>
         </table>
-
-        
-        <a href="/" class="btn btn-outline-dark">Novo</a>
+      </div>
+        <div class="container d-flex">
+        <a href="/" class="btn btn-outline-dark ">Novo</a>
+      </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

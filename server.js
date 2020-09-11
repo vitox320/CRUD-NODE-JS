@@ -4,13 +4,21 @@ const app = express()
 const expressValidator = require('express-validator')
 const { ObjectId } = require("mongodb")
 
+app.set('view engine','ejs')
 const MongoCliente = require('mongodb').MongoClient
 const uri = "mongodb+srv://vitox320:88662479@cluster0.wqdxn.mongodb.net/<dbname>?retryWrites=true&w=majority"
+
+
+
 
 MongoCliente.connect(uri,(err,client)=>{
     if (err) return console.log(err)
     
     db = client.db('crudzada')
+    
+    app.listen(3000,function(){
+    console.log("Servidor rodando na porta 3000")
+})
 
 })
 
@@ -34,11 +42,6 @@ app.get("/show",(req,res)=>{
 })
 
 app.post("/show",(req,res)=>{
-
-    if(req.body.nome == '' || req.body.email == '' || req.body.cpf == '' || req.body.telefone == ''|| req.body.endereco == ''||req.body.  cidade == ''||req.body.estado == ''){
-    res.send("Preencha todos os campos")
-    
-}else{
         
         db.collection('data').save(req.body,(err,result) =>{
         if (err) return console.log(err)
@@ -47,7 +50,7 @@ app.post("/show",(req,res)=>{
         res.redirect('/show')
               
     })
-    }
+    
 })
 
 app.route("/edit/:id")
@@ -99,11 +102,4 @@ app.route('/delete/:id')
         console.log('Deletado do Banco de Dados!')
         res.redirect('/show')
     })
-})
-
-app.set('view engine','ejs')
-
-
-app.listen(8080,function(){
-    console.log("Servidor rodando na porta 8080")
 })

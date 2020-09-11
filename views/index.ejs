@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+   
     <title>CRUD COM NODE</title>
     
 </head>
@@ -20,37 +21,39 @@
            
         <div class="form-group">
             <label for="nome">Nome </label>
-            <input type="text" class="form-control" id="nome" name="nome" >                
+            <input type="text" class="form-control" id="nome" name="nome" required>                
         </di>           
             <div class="form-group">
             <label for="email">Email </label>
-            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
             <small id="emailHelp" class="form-text text-muted">Nuca iremos compartilhar seu email xD</small>
+            
         </div>
 
         <div class="form-group">
             <label for="cpf">cpf </label>
-            <input type="text" class="form-control" id="cpf" name="cpf">                
+            <input type="text" class="form-control" id="cpf" name="cpf" required>   
+
         </div>
        
         <div class="form-group">
             <label for="telefone">telefone </label>
-            <input type="text" class="form-control" id="telefone" name="telefone" >                
+            <input type="text" class="form-control" id="telefone" name="telefone" required>                
         </div>
        
         <div class="form-group">
             <label for="endereco">Endereço </label>
-            <input type="text" class="form-control" id="endereco" name="endereco" >                
+            <input type="text" class="form-control" id="endereco" name="endereco" required>                
         </div>
        
         <div class="form-group">
             <label for="endereco">cidade </label>
-            <input type="text" class="form-control" id="cidade" name="cidade" >                
+            <input type="text" class="form-control" id="cidade" name="cidade" required>                
         </div>
        
         <div class="form-group">
             <label for="endereco">estado </label>
-            <input type="text" class="form-control" id="estado" name="estado" >                
+            <input type="text" class="form-control" id="estado" name="estado" required>                
         </div>
         
         <p>Gênero <br>
