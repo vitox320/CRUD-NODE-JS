@@ -1,75 +1,191 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-   
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
     <title>CRUD COM NODE</title>
-    
-</head>
-<body>    
-        <h1 style="text-align: center;">Seja bem vindo ao nosso banco de dados</h1>
-        <h3 style="text-align: center;">Precisamos coletar seus dados antes que a LGPD entre em vigor aqui no Brasil </h3>
-        <h5 style="text-align: center;"> Conosco suas informações continuarão seguras e rentaveis </h5>
-        <h6 style="text-align: center;"> Registre-se</h6>
-        
-        <br> 
-    
+  </head>
+  <style>
+    .grey-bg {
+      background-color: #eee;
+    }
 
-    <form action="/show" method="post">
-           
-        <div class="form-group">
-            <label for="nome">Nome </label>
-            <input type="text" class="form-control" id="nome" name="nome" required>                
-        </di>           
+    .bg-blue {
+      background-color: #fefefe;
+    }
+
+    .label-size {
+      font-size: 1.05em;
+      font-weight: bold;
+    }
+  </style>
+  <body class="grey-bg">
+    <header class="mb-5">
+      <h1 style="text-align: center">Seja bem vindo ao nosso banco de dados</h1>
+      <h3 style="text-align: center">
+        Precisamos coletar seus dados antes que a LGPD entre em vigor aqui no
+        Brasil
+      </h3>
+      <h5 style="text-align: center">
+        Conosco suas informações continuarão seguras e rentaveis
+      </h5>
+      <h6 style="text-align: center">Registre-se</h6>
+    </header>
+
+    <div class="container mb-5">
+      <div class="row justify-content-center">
+        <a href="show" class="btn btn-outline-dark bg-light">Ver todos os dados</a>
+      </div>
+    </div>
+
+    <div class="container w-100">
+      <div class="row">
+        <div class="col-3"></div>
+        <section class="col-6 bg-blue p-4 rounded shadow">
+          <form action="/show" method="post">
             <div class="form-group">
-            <label for="email">Email </label>
-            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
-            <small id="emailHelp" class="form-text text-muted">Nuca iremos compartilhar seu email xD</small>
-            
-        </div>
+              <label for="nome" class="label-size text-dark">Nome</label>
+              <input
+                type="text"
+                class="form-control"
+                id="nome"
+                name="nome"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email" class="label-size text-dark">Email </label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                aria-describedby="emailHelp"
+                required
+              />
+              <small id="emailHelp" class="text-dark form-text"
+                >Nuca iremos compartilhar seu email xD</small
+              >
+            </div>
 
-        <div class="form-group">
-            <label for="cpf">cpf </label>
-            <input type="text" class="form-control" id="cpf" name="cpf" required>   
+            <div class="form-group">
+              <label for="cpf" class="label-size text-dark">CPF </label>
+              <input
+                type="text"
+                class="form-control"
+                id="cpf"
+                name="cpf"
+                required
+              />
+            </div>
 
-        </div>
-       
-        <div class="form-group">
-            <label for="telefone">telefone </label>
-            <input type="text" class="form-control" id="telefone" name="telefone" required>                
-        </div>
-       
-        <div class="form-group">
-            <label for="endereco">Endereço </label>
-            <input type="text" class="form-control" id="endereco" name="endereco" required>                
-        </div>
-       
-        <div class="form-group">
-            <label for="endereco">cidade </label>
-            <input type="text" class="form-control" id="cidade" name="cidade" required>                
-        </div>
-       
-        <div class="form-group">
-            <label for="endereco">estado </label>
-            <input type="text" class="form-control" id="estado" name="estado" required>                
-        </div>
-        
-        <p>Gênero <br>
-            <input type="radio" name="sexo" id="masc" value="Masculino" checked>
-            <label for="masc">Masculino</label>
-            <input type="radio" name="sexo" id="fem" class="r" value="Feminino">
-            <label for="fem">Feminino</label>
-        </p>
+            <div class="form-group">
+              <label for="telefone" class="label-size text-dark"
+                >Telefone
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="telefone"
+                name="telefone"
+                required
+              />
+            </div>
 
-        <button type="submit" class="btn btn-outline-dark" onclick="validar()">Registrar</button>
-        <a href="show" class="btn btn-outline-dark">Todos os dados</a>
-          
-    </form>
+            <div class="form-group">
+              <label for="endereco" class="label-size text-dark"
+                >Endereço
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="endereco"
+                name="endereco"
+                required
+              />
+            </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-</body>
+            <div class="form-group">
+              <label for="endereco" class="label-size text-dark">Cidade </label>
+              <input
+                type="text"
+                class="form-control"
+                id="cidade"
+                name="cidade"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="endereco" class="label-size text-dark">Estado </label>
+              <input
+                type="text"
+                class="form-control"
+                id="estado"
+                name="estado"
+                required
+              />
+            </div>
+
+            <div class="mb-3">
+              <p class="label-size">Gênero</p>
+              <input
+                type="radio"
+                name="sexo"
+                id="masc"
+                value="Masculino"
+                checked
+              />
+              <label for="masc">Masculino</label>
+              <input
+                type="radio"
+                name="sexo"
+                id="fem"
+                class="r"
+                value="Feminino"
+              />
+              <label for="fem">Feminino</label>
+            </div>
+
+            <div class="container">
+              <div class="row justify-content-end">
+                <button
+                  type="submit"
+                  class="btn btn-outline-dark bg-light mr-2"
+                  onclick="validar()"
+                >
+                  Registrar
+                </button>
+              </div>
+            </div>
+          </form>
+        </section>
+        <div class="col-3"></div>
+      </div>
+    </div>
+
+    <div class="m-5"></div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
