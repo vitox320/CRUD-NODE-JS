@@ -26,7 +26,33 @@
     }
   </style>
   <body class="grey-bg">
-    <header class="mb-5">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">CRUD</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Registrar <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/show">Todos</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <header class="mb-5 mt-4">
       <h1 style="text-align: center">Seja bem vindo ao nosso banco de dados</h1>
       <h3 style="text-align: center">
         Precisamos coletar seus dados antes que a LGPD entre em vigor aqui no
@@ -44,10 +70,10 @@
       </div>
     </div>
 
-    <div class="container w-100">
+    <div class="container">
       <div class="row">
-        <div class="col-3"></div>
-        <section class="col-6 bg-blue p-4 rounded shadow">
+        <div class="col-lg-3 col-sm-2"></div>
+        <section class="col-lg-6 col-sm-8 bg-blue p-4 rounded shadow">
           <form action="/show" method="post">
             <div class="form-group">
               <label for="nome" class="label-size text-dark">Nome</label>
@@ -166,7 +192,7 @@
             </div>
           </form>
         </section>
-        <div class="col-3"></div>
+        <div class="col-3 col-sm-2"></div>
       </div>
     </div>
 
