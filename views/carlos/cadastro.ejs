@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro - Carlos</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+  </head>
+  <style>
+    body {
+      background-color: #eee;
+    }
+  </style>
+  <body>
+    <div class="m-5"></div>
+    <%- include ("btnsNavegacao.ejs") %>  
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <form
+          method="POST"
+          action="/cadastro"
+          class="bg-primary px-5 pt-5 pb-5 shadow"
+        >
+          <h2 class="text-center text-light mb-4">Cadastro</h2>
+          <div class="form-row">
+            <div class="col-md-6 text-light mb-3">
+              <label for="nome">Nome</label>
+              <input
+                type="text"
+                name="nome"
+                class="form-control"
+                id="nome"
+                required
+              />
+            </div>
+            <div class="col-md-6 text-light mb-3">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                name="email"
+                class="form-control"
+                id="email"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 text-light mb-3">
+              <label for="profissao">Profissão</label>
+              <input
+                type="text"
+                class="form-control"
+                id="profissao"
+                name="profissao"
+                required
+              />
+            </div>
+            <div class="col-md-3 text-light mb-3">
+              <label for="estado">Estado</label>
+              <select class="custom-select" id="estado" name="estado">
+                <option value="AC">Acre</option>
+                <option value="AL">Alagoas</option>
+                <option value="AP">Amapá</option>
+                <option value="AM">Amazonas</option>
+                <option value="BA">Bahia</option>
+                <option value="CE">Ceará</option>
+                <option value="DF">Distrito Federal</option>
+                <option value="ES">Espírito Santo</option>
+                <option value="GO">Goiás</option>
+                <option value="MA">Maranhão</option>
+                <option value="MT">Mato Grosso</option>
+                <option value="MS">Mato Grosso do Sul</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="PA">Pará</option>
+                <option value="PB">Paraíba</option>
+                <option value="PR">Paraná</option>
+                <option value="PE">Pernambuco</option>
+                <option value="PI">Piauí</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="RN">Rio Grande do Norte</option>
+                <option value="RS">Rio Grande do Sul</option>
+                <option value="RO">Rondônia</option>
+                <option value="RR">Roraima</option>
+                <option value="SC">Santa Catarina</option>
+                <option value="SP">São Paulo</option>
+                <option value="SE">Sergipe</option>
+                <option value="TO">Tocantins</option>
+                <option value="EX">Estrangeiro</option>
+              </select>
+            </div>
+            <div class="col-md-3 text-light mb-3">
+              <label for="cep">CEP</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cep"
+                name="cep"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 text-light mb-3">
+              <label for="telefone">Telefone</label>
+              <input
+                type="text"
+                name="telefone"
+                class="form-control"
+                id="telefone"
+                required
+              />
+            </div>
+            <div class="col-md-6 text-light mb-3">
+              <label for="celular">Celular</label>
+              <input
+                type="text"
+                name="celular"
+                class="form-control"
+                id="celular"
+                required
+              />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="col-md-6 text-light mb-3">
+              <label for="senha">Senha</label>
+              <input
+                type="password"
+                name="senha"
+                class="form-control"
+                id="senha"
+                required
+              />
+            </div>
+            <div class="col-md-6 text-light mb-3">
+              <label for="senhaConfirm">Confirme a senha</label>
+              <input
+                type="password"
+                name="senhaConfirm"
+                class="form-control"
+                id="senhaConfirm"
+                required
+              />
+            </div>
+          </div>
+          <button class="btn btn-light" type="submit">Confirmar</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="m-5"></div>
+
+    <%- include ("partialBtnTelaPrincipal.ejs") %>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const senhaConfirm = document.getElementById("senhaConfirm");
+
+      senhaConfirm.addEventListener("change", (e) => {
+        const senha = document.getElementById("senha");
+        if (e.target.value !== senha.value) {
+          senha.classList.add("is-invalid");
+          senhaConfirm.classList.add("is-invalid");
+        } else {
+          senha.classList.remove("is-invalid");
+          senhaConfirm.classList.remove("is-invalid");
+        }
+      });
+    </script>
+  </body>
+</html>
