@@ -6,7 +6,7 @@ const { ObjectId } = require("mongodb")
 
 app.set('view engine','ejs')
 const MongoCliente = require('mongodb').MongoClient
-const uri = "mongodb+srv://vitox320:88662479@cluster0.wqdxn.mongodb.net/<dbname>?retryWrites=true&w=majority"
+const uri = "mongodb+srv://coviram:mobicrud@clustercrud.vqezz.gcp.mongodb.net/crudzada?retryWrites=true&w=majority"
 
 
 
