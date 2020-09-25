@@ -1,13 +1,12 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const app = express()
-//const expressValidator = require('express-validator')
+const expressValidator = require('express-validator')
 const { ObjectId } = require("mongodb")
 
 app.set('view engine','ejs')
 const MongoCliente = require('mongodb').MongoClient
-//const uri = "mongodb+srv://vitox320:88662479@cluster0.wqdxn.mongodb.net/<dbname>?retryWrites=true&w=majority"
-const uri = "mongodb+srv://teste:cdm2020@cluster0.yfkre.mongodb.net/crud?retryWrites=true&w=majority"
+const uri = "mongodb+srv://vitox320:88662479@cluster0.wqdxn.mongodb.net/<dbname>?retryWrites=true&w=majority"
 
 MongoCliente.connect(uri,(err,client)=>{
     if (err) return console.log(err)
