@@ -194,3 +194,5 @@ app.route('/deleteDenuncia/:id')
     })
 });
 
+/*   CRUD - DENUNCIAS  - FIM       */
+
