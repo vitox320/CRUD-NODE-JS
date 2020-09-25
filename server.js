@@ -149,7 +149,7 @@ app.route("/editDenuncias/:id")
 
     db.collection('denuncia').find(ObjectId(id)).toArray((err,result) => {
         if (err) return res.send(err)
-        res.render('editDenuncias.ejs',{denuncia:result})
+        res.render('izadora/editDenuncias.ejs',{denuncia:result})
     })
 })
 .post((req,res)=>{
