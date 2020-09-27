@@ -198,7 +198,7 @@ app.get("/user/:uid", async (req, res) => {
   }
 });
 
-// Parte carlos - Fim
+// Parte de carlos - Fim
 /*   CRUD - DENUNCIAS  - INICIO    */
 
 app.get("/",(req,res)=>{
