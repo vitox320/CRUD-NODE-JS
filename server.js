@@ -32,7 +32,7 @@ app.get("/", (req, res) => {
 
 //--------------------config (fulano)(tem que alterar a raiz "/") ---------------------
 
-app.get("/", (req, res) => {
+app.get("/projA", (req, res) => {
     res.render('index.ejs')
     let cursor = db.collection('data').find()
 })
