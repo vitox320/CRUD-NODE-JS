@@ -1,0 +1,39 @@
+    <%- include ("componentes/header.ejs") %>
+
+    <title>Cad Profissional - Registros</title>
+
+    <%- include ("componentes/menu.ejs") %>
+
+    <div class="container">
+        <h2 class="mt-5 mb-3">Registros</h2>
+        <div class="row justify-content-end">
+            <div class="col-md-1">
+                <a href="/cadastro" class="btn btn-dark mb-3">Cadastrar</a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <% data.forEach(function(details) { %>
+            <div class="card m-2 shadow p-3 mb-5 bg-white rounded" style="width: 22rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><%= details.name%> <%= details.sobrenome%></h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"> <%= details.profissao%></li>
+                    <li class="list-group-item"> <%= details.email%></li>
+                    <li class="list-group-item"><%= details.tel%></li>
+                    <li class="list-group-item"><%= details.endereco%>, <%= details.cidade%> - <%= details.uf%></li>
+                </ul>
+                <div class="card-body row justify-content-between">
+                    <div class="col-4">
+                        <a href="/editar/<%= details._id %>" class="btn btn-outline-secondary ml-2">Editar</a>
+                    </div>
+                    <div class="col-4">
+                        <a href="/deletar/<%= details._id %>" class="btn btn btn-outline-danger">Excluir</a>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <%- include ("componentes/footer.ejs") %>
