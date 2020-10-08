@@ -1,0 +1,65 @@
+<%- include("componentes/header.ejs")%>
+<title>Edição de Estagiário</title>
+
+<%- include("componentes/menu.ejs")%>
+<div class="container">
+    <div class="col-sm">
+        <div class="badge-light p-1 mb-5">
+            <div class="p-5 mb-2 bg-dark text-white">
+                <div class="row">
+                    <% data.forEach(function(details) {%>
+                    <form action="/edita/<%=details._id %>" method="POST">
+                        <div class="form group row">
+                            <div class="col-md-4">
+                                <label for="text">Nome</label>
+                                <input type="text" class="form-control" value="<%=details.nome %>" name="nome">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text">Sobrenome</label>
+                                <input type="text" class="form-control" value="<%=details.sobrenome %>"
+                                    name="sobrenome">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text">CPF</label>
+                                <input type="text" class="form-control" value="<%=details.cpf %>" name="cpf">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text">email</label>
+                                <input type="text" class="form-control" value="<%=details.email %>" name="email">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text">Telefone</label>
+                                <input type="text" class="form-control" value="<%=details.telefone %>" name="telefone">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text">Instituição</label>
+                                <input type="text" class="form-control" value="<%=details.instituicao %>"
+                                    name="instituicao">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text">Curso</label>
+                                <input type="text" class="form-control" value="<%=details.curso %>" name="curso">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="text">Semestre</label>
+                                <input type="text" class="form-control" value="<%=details.semestre %>" name="semestre">
+                            </div>
+                        </div>
+                        </br>
+                        <a class="btn btn- mr-2 justify-content badge-light" href="/listagem" type="submit">Voltar</a>
+                        <button class="btn badge-light" type="submit">Salvar</button>
+                    </form>
+                    <% })%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include("componentes/footer.ejs")%>

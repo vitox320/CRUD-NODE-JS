@@ -30,17 +30,17 @@ app.get("/", (req, res) => {
     res.render('cruds.ejs')
 })
 
-//--------------------config (fulano)(tem que alterar a raiz "/") ---------------------
+//--------------------config (João)(tem que alterar a raiz "/") ---------------------
 
 app.get("/projA", (req, res) => {
-    res.render('index.ejs')
+    res.render('joao/index.ejs')
     let cursor = db.collection('data').find()
 })
 
 app.get("/show", (req, res) => {
     db.collection('data').find().toArray((err, results) => {
         if (err) return console.log(err)
-        res.render('show.ejs', { data: results })
+        res.render('joao/show.ejs', { data: results })
 
     })
 })
@@ -63,7 +63,7 @@ app.route("/edit/:id")
 
         db.collection('data').find(ObjectId(id)).toArray((err, result) => {
             if (err) return res.send(err)
-            res.render('edit.ejs', { data: result })
+            res.render('joao/edit.ejs', { data: result })
         })
     })
     .post((req, res) => {
@@ -107,10 +107,10 @@ app.route('/delete/:id')
             res.redirect('/show')
         })
     })
-//-------------------- fim da config (fulano) ---------------------
+//-------------------- fim da config (joão) ---------------------
 
 
-/*   CRUD - DENUNCIAS  - INICIO    */
+/*   CRUD - DENUNCIAS  - INICIO Izadora   */
 
 app.get("/iza", (req, res) => {
 
@@ -199,45 +199,152 @@ app.route('/deleteDenuncia/:id')
 
 /*   CRUD - DENUNCIAS  - FIM       */
 
+//-------------------- Config Carlos -------------
+const crypto = require("crypto");
+
+app.get("/todos", async (req, res) => {
+    try {
+        const dados = await db.collection("colessaum").find().toArray();
+        res.render("carlos\\todos.ejs", { dados });
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+app.get("/cadastro", (req, res) => {
+    res.render("carlos\\cadastro.ejs");
+});
+
+app.post("/cadastro", async (req, res) => {
+    try {
+        const data = {
+            nome: req.body.nome,
+            email: req.body.email,
+            profissao: req.body.profissao,
+            estado: req.body.estado,
+            cep: req.body.cep,
+            telefone: req.body.telefone,
+            celular: req.body.celular,
+            senha: crypto.createHash("sha1").update(req.body.senha).digest("hex"),
+        };
+        await db.collection("colessaum").insertOne(data);
+
+        return res.redirect("/todos");
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+app.get("/deletar/:uid", async (req, res) => {
+    const uid = req.params.uid;
+
+    try {
+        await db.collection("colessaum").deleteOne({ _id: ObjectId(uid) });
+
+        res.redirect("carlos\\todos.ejs");
+    } catch (err) {
+        console.error(err);
+    }
+});
+
+app.post("/user/:uid", async (req, res) => {
+    try {
+        const uid = req.params.uid;
+
+        const data = {
+            nome: req.body.nome.trim(),
+            email: req.body.email.trim(),
+            profissao: req.body.profissao.trim(),
+            estado: req.body.estado.trim(),
+            cep: req.body.cep.trim(),
+            telefone: req.body.telefone.trim(),
+            celular: req.body.celular.trim(),
+            senha: crypto.createHash("sha1").update(req.body.senha).digest("hex"),
+        };
+
+        const response = await db.collection("colessaum").updateOne(
+            { _id: ObjectId(uid) },
+            {
+                $set: {
+                    nome: data.nome,
+                    email: data.email,
+                    profissao: data.profissao,
+                    estado: data.estado,
+                    cep: data.cep,
+                    telefone: data.telefone,
+                    celular: data.celular,
+                    senha: data.senha,
+                },
+            });
+
+        res.redirect(`/user/${uid}`);
+    } catch (err) {
+        console.error(err.Error);
+    }
+});
+
+app.get("/user/:uid", async (req, res) => {
+    try {
+        const uid = req.params.uid;
+
+        const dados = await db
+            .collection("colessaum")
+            .find(ObjectId(uid))
+            .toArray();
+
+        res.render("carlos\\user.ejs", { dados });
+    } catch (err) {
+        console.error(err);
+    }
+});
+// app.listen(3000, () => {
+//     console.log("Servidor rodando na porta 3000");
+// });
+
+//-------------------- fim config carlos ----------
 
 //--------------------config do Paulo ---------------------
 //variáveisS
 let colecao = 'CadProfissional';
-var pgPrincipal = "paulo/registros.ejs";
+let pPrincipal = "paulo/registros.ejs";
 let pgCadastro = "paulo/cadastro.ejs";
+let pEditar = "paulo/edit"
+
+// máscaras de endereços
+let registros = '/regPaulo'
+let cadastro = '/cadPaulo'
+let deletar = '/delPaulo'
+let editar = '/editPaulo'
 
 //pagina principal
-app.get('/registros', (req, res) => {
+app.get(registros, (req, res) => {
     db.collection(colecao).find().toArray((err, results) => {
         if (err) return console.log(err)
-        res.render(pgPrincipal, { data: results })
-
+        res.render(pPrincipal, { data: results })
     })
 })
 
 //página de cadastro
-app.get('/cadastro', (req, res) => {
+app.get(cadastro, (req, res) => {
     let cursor = db.collection(colecao).find()
     res.render(pgCadastro)
 })
 
-app.post('/cadastro', (req, res) => {
+app.post(cadastro, (req, res) => {
     db.collection(colecao).save(req.body, (err, result) => {
         if (err) return console.log(err)
-
         console.log('salvo no banco de dados')
-        res.redirect('/registros')
+        res.redirect(registros)
     })
 })
 
 //função editar
-app.route('/editar/:id')
+app.route(editar + '/:id')
     .get((req, res) => {
         var id = req.params.id
-
         db.collection(colecao).find(ObjectId(id)).toArray((err, result) => {
             if (err) return res.send(err)
-            res.render('paulo/edit', { data: result })
+            res.render(pEditar, { data: result })
         })
     })
     .post((req, res) => {
@@ -250,7 +357,6 @@ app.route('/editar/:id')
         var cidade = req.body.cidade
         var uf = req.body.uf
         var profissao = req.body.profissao
-
         db.collection(colecao).updateOne({ _id: ObjectId(id) }, {
             $set: {
                 name: name,
@@ -264,20 +370,106 @@ app.route('/editar/:id')
             }
         }, (err, result) => {
             if (err) return res.send(err)
-            res.redirect('/registros')
+            res.redirect(registros)
             console.log('Atualizado no banco de dados')
         })
     })
 
 //função excluir
-app.route('/deletar/:id').get((req, res) => {
+app.route(deletar + '/:id').get((req, res) => {
     var id = req.params.id
-
     db.collection(colecao).deleteOne({ _id: ObjectId(id) }, (err, result) => {
         if (err) return res.send(500, err)
         console.log('Pagado do Banco de dados!')
-        res.redirect('/registros')
+        res.redirect(registros)
     })
 })
+
+//-------------------- fim da config do Paulo --------------------
+
+//--------------------config de Vagner ---------------------
+//variáveisS
+var cole = 'CadEstagiario';
+var pgPrincipal = "Vagner/listagem.ejs";
+let pgCad = "Vagner/cadastro.ejs";
+
+//pagina principal
+app.get('/listagem', (req, res) => {
+    db.collection(cole).find().toArray((err, results) => {
+        if (err) return console.log(err)
+        res.render(pgPrincipal, { data: results })
+
+    })
+})
+
+//página de cadastro
+app.get('/cad', (req, res) => {
+    let cursor = db.collection(cole).find()
+    res.render(pgCad)
+})
+
+app.post('/cad', (req, res) => {
+    db.collection(cole).save(req.body, (err, result) => {
+        if (err) return console.log(err)
+
+        console.log('salvo no banco de dados')
+        res.redirect('/listagem')
+    })
+})
+
+//função editar
+app.route('/edita/:id')
+    .get((req, res) => {
+        var id = req.params.id
+
+        db.collection(cole).find(ObjectId(id)).toArray((err, result) => {
+            if (err) return res.send(err)
+            res.render('Vagner/edit', { data: result })
+        })
+    })
+    .post((req, res) => {
+        var id = req.params.id
+        var nome = req.body.nome
+        var sobrenome = req.body.sobrenome
+        var cpf = req.body.cpf
+        var email = req.body.email
+        var telefone = req.body.telefone
+        var instituicao = req.body.instituicao
+        var curso = req.body.curso
+        var semestre = req.body.semestre
+        db.collection(cole).updateOne({
+            _id: ObjectId(id)
+        }, {
+            $set: {
+                nome: nome,
+                sobrenome: sobrenome,
+                cpf: cpf,
+                email: email,
+                telefone: telefone,
+                instituicao: instituicao,
+                curso: curso,
+                semestre: semestre
+            }
+        }, (err, result) => {
+            if (err) return res.send(err)
+            res.redirect('/listagem')
+            console.log('Atualizado no banco de dados')
+        })
+    })
+
+//função excluir
+app.route('/excluir/:id').get((req, res) => {
+    var id = req.params.id
+
+    db.collection(cole).deleteOne({ _id: ObjectId(id) }, (err, result) => {
+        if (err) return res.send(500, err)
+        console.log('Pagado do Banco de dados!')
+        res.redirect('/listagem')
+    })
+})
+
+//-------------------- fim da config de Vagner --------------------
+
+//-------------------- Config do Paulo ---------------------------
 
 //-------------------- fim da config do Paulo --------------------

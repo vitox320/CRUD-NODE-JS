@@ -7,7 +7,7 @@
 <div class="container">
     <h2 class="my-4">Editar registros</h2>
     <% data.forEach(function(details) { %>
-    <form action="/editar/<%=details._id %>" method="POST"
+    <form action="/editPaulo/<%=details._id %>" method="POST"
         class="needs-validation shadow px-5 pt-5 pb-3 mb-3 bg-white rounded" novalidate>
         <div class="form-row mb-3">
             <div class="col-md-3">
@@ -90,7 +90,7 @@
         <div class="form-row my-4">
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/registros" class="btn btn-dark ml-2">Voltar</a>
+                <a href="/regPaulo" class="btn btn-dark ml-2">Voltar</a>
             </div>
         </div>
     </form>
