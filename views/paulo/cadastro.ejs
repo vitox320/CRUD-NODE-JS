@@ -11,13 +11,14 @@
         <div class="form-row mb-3">
             <div class="col-md-3">
                 <label for="validacao">Primeiro nome</label>
-                <input type="text" class="form-control" id="validationServer01" placeholder="Nome" name="name" required>
+                <input type="text" class="form-control" id="validationServer01" placeholder="Nome" name="name" required
+                    maxlength="15">
                 <div class="invalid-feedback">Por favor, informe o nome do usuário.</div>
             </div>
             <div class="col-md-3">
                 <label for="validacao02">Sobrenome</label>
                 <input type="text" class="form-control" id="validacao02" placeholder="Sobrenome" name="sobrenome"
-                    required="">
+                    required maxlength="15">
                 <div class="invalid-feedback">Por favor, informe o sobrenome do usuário.</div>
             </div>
             <div class="col-md-4">
@@ -26,14 +27,16 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="">@</span>
                     </div>
-                    <input type="text" class="form-control" id="validacao03" placeholder="Email" name="email" required>
+                    <input type="email" class="form-control" id="validacao03" placeholder="Email" name="email" required>
                     <div class="invalid-feedback">Por favor, informe o email do usuário.</div>
                 </div>
             </div>
             <div class="col-md-2">
                 <label for="validacao04">Telefone</label>
-                <input type="text" class="form-control" id="validacao04" placeholder="Telefone" name="tel" required>
-                <div class="invalid-feedback">Por favor, informe o Telefone do usuário.</div>
+                <input type="tel" class="form-control" id="validacao04" placeholder="Telefone" name="tel" required
+                    data-mask="(00) 0 0000-0000" data-mask-clearifnotmatch="true">
+                <div class=" invalid-feedback">Por favor, informe
+                    o Telefone do usuário.</div>
             </div>
         </div>
         <div class="form-row mb-3">
@@ -97,4 +100,5 @@
         </div>
     </form>
 </div>
+
 <%- include ("componentes/footer.ejs") %>
