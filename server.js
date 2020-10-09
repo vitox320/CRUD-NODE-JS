@@ -199,94 +199,94 @@ app.get("/user/:uid", async (req, res) => {
 });
 
 // Parte de carlos - Fim
-/*   CRUD - DENUNCIAS  - INICIO    */
+/*   CRUD - PRODUTOS - IZADORA  - INICIO    */
 
 app.get("/iza", (req, res) => {
 
-    res.render('izadora/denunciar.ejs')
-    let cursor = db.collection('denuncia').find()
+    res.render('izadora/cadastrarProduto.ejs')
+    let cursor = db.collection('produto').find()
 })
 
-app.get("/denunciar", (req, res) => {
-    db.collection('denuncia').find().toArray((err, results) => {
+app.get("/cadastrarProduto", (req, res) => {
+    db.collection('produto').find().toArray((err, results) => {
         if (err) return console.log(err)
-        res.render('izadora/denunciar.ejs', { denuncia: results })
+        res.render('izadora/cadastrarProduto.ejs', { produto: results })
 
     })
 })
 
-app.get("/showDenuncias", (req, res) => {
-    db.collection('denuncia').find().toArray((err, results) => {
+app.get("/showProdutos", (req, res) => {
+    db.collection('produto').find().toArray((err, results) => {
         if (err) return console.log(err)
-        res.render('izadora/showDenuncias.ejs', { denuncia: results })
+        res.render('izadora/showProdutos.ejs', { produto: results })
 
     })
 })
 
-app.post("/denunciar", (req, res) => {
+app.post("/cadastrarProduto", (req, res) => {
 
-    db.collection('denuncia').save(req.body, (err, result) => {
+    db.collection('produto').save(req.body, (err, result) => {
         if (err) return console.log(err)
 
         console.log('salvo no banco de dados')
-        res.redirect('/showDenuncias')
+        res.redirect('/showProdutos')
 
     })
 
 })
 
-app.route("/editDenuncias/:id")
+app.route("/editProduto/:id")
     .get((req, res) => {
         let id = req.params.id
 
-        db.collection('denuncia').find(ObjectId(id)).toArray((err, result) => {
+        db.collection('produto').find(ObjectId(id)).toArray((err, result) => {
             if (err) return res.send(err)
-            res.render('izadora/editDenuncias.ejs', { denuncia: result })
+            res.render('izadora/editProduto.ejs', { produto: result })
         })
     })
     .post((req, res) => {
         let id = req.params.id
-        let name = req.body.nome
-        let email = req.body.email
-        let cpf = req.body.cpf
-        let telefone = req.body.telefone
-        let estado = req.body.estado
-        let sexo = req.body.sexo
-        let quem = req.body.quem
-        let qualDado = req.body.qualDado
+        let produto = req.body.produto
+        let descricao = req.body.descricao
+        let quantidade = req.body.quantidade
+        let precoUnitario = req.body.precoUnitario
+        let fornecedor = req.body.fornecedor
+        let novoUsado = req.body.novoUsado
+        let cor = req.body.cor
+        let tamanho = req.body.tamanho
 
-        db.collection('denuncia').updateOne({ _id: ObjectId(id) }, {
+        db.collection('produto').updateOne({ _id: ObjectId(id) }, {
 
             $set: {
-                nome: name,
-                email: email,
-                cpf: cpf,
-                telefone: telefone,
-                estado: estado,
-                sexo: sexo,
-                quem: quem,
-                qualDado: qualDado,
+                produto: produto,
+                descricao: descricao,
+                quantidade: quantidade,
+                precoUnitario: precoUnitario,
+                fornecedor: fornecedor,
+                novoUsado: novoUsado,
+                cor: cor,
+                tamanho: tamanho,
             }
         }, (err, result) => {
             if (err) return res.send(err)
-            res.redirect('/showDenuncias')
+            res.redirect('/showProdutos')
             console.log('Atualizado no Banco de Dados')
 
         })
     })
 
-app.route('/deleteDenuncia/:id')
+app.route('/deleteProduto/:id')
     .get((req, res) => {
         let id = req.params.id
 
-        db.collection('denuncia').deleteOne({ _id: ObjectId(id) }, (err, result) => {
+        db.collection('produto').deleteOne({ _id: ObjectId(id) }, (err, result) => {
             if (err) return res.send(500, err)
             console.log('Deletado do Banco de Dados!')
-            res.redirect('/showDenuncias')
+            res.redirect('/showProdutos')
         })
     });
 
-/*   CRUD - DENUNCIAS  - FIM       */
+/*   CRUD - PRODUTOS - IZADORA  - FIM       */
 
 
 //--------------------config do Paulo ---------------------
