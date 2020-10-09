@@ -26,13 +26,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="">@</span>
                     </div>
-                    <input type="text" class="form-control" value="<%= details.email %>" name="email" required>
+                    <input type="email" class="form-control" value="<%= details.email %>" name="email" required>
                     <div class="invalid-feedback">Por favor, informe o email do usuário.</div>
                 </div>
             </div>
             <div class="col-md-2">
                 <label for="validacao04">Telefone</label>
-                <input type="text" class="form-control" value="<%= details.tel %>" name="tel" required>
+                <input type="text" class="form-control" value="<%= details.tel %>" name="tel" required
+                    data-mask="(00) 0 0000-0000" data-mask-clearifnotmatch="true">
                 <div class="invalid-feedback">Por favor, informe o Telefone do usuário.</div>
             </div>
         </div>
