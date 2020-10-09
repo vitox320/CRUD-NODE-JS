@@ -27,123 +27,133 @@
   </style>
   <body class="grey-bg">
     <%- include ("..\\partialNavbar.ejs") %>  
-   <header class="mb-5 mt-4">
-      
+    <header class="mb-5 mt-4">
+      <h1 style="text-align: center">Se você teve seus dados usados de forma indevida,
+                                     registre aqui!</h1>
+      <h3 style="text-align: center">
+        Conte-nos para que possamos tomar as devidas providências
+      </h3>
+      <h5 style="text-align: center">
+       Conosco suas informações continuarão seguras e rentaveis
+      </h5>
+      <h6 style="text-align: center">Registre-se</h6>
     </header>
 
     <div class="container mb-5">
       <div class="row justify-content-center">
-        <a href="showProdutos" class="btn btn-outline-dark">Lista de produtos</a>
+        <a href="showDenuncias" class="btn btn-outline-dark">Veja todas as denuncias</a>
       </div>
     </div>
-
-    <h1 style="text-align: center">Cadastrar novo produto</h1>
 
     <div class="container">
       <div class="row">
         <div class="col-lg-3 col-sm-2"></div>
         <section class="col-lg-6 col-sm-8 bg-blue p-4 rounded shadow">
-          <form action="/cadastrarProduto" method="post">
+          <form action="/denunciar" method="post">
             <div class="form-group">
-              <label for="nome" class="label-size text-dark">Produto</label>
+              <label for="nome" class="label-size text-dark">Nome</label>
               <input
                 type="text"
                 class="form-control"
-                id="produto"
-                name="produto"
+                id="nome"
+                name="nome"
                 required
               />
             </div>
             <div class="form-group">
-              <label for="descricao" class="label-size text-dark">Descrição </label>
+              <label for="email" class="label-size text-dark">Email </label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                aria-describedby="emailHelp"
+                required
+              />
+              <small id="emailHelp" class="text-dark form-text"
+                >Nunca iremos compartilhar seu email xD</small
+              >
+            </div>
+
+            <div class="form-group">
+              <label for="cpf" class="label-size text-dark">CPF </label>
               <input
                 type="text"
                 class="form-control"
-                name="descricao"
-                id="descricao"
+                id="cpf"
+                name="cpf"
                 required
               />
             </div>
 
             <div class="form-group">
-              <label for="cpf" class="label-size text-dark">Quantidade </label>
-              <input
-                type="text"
-                class="form-control"
-                id="quantidade"
-                name="quantidade"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="precoUnitario" class="label-size text-dark"
-                >Preço unitário
+              <label for="telefone" class="label-size text-dark"
+                >Telefone
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="precoUnitario"
-                name="precoUnitario"
+                id="telefone"
+                name="telefone"
                 required
               />
             </div>
 
             <div class="form-group">
-              <label for="fornecedor" class="label-size text-dark"
-                >Fornecedor
+              <label for="telefone" class="label-size text-dark"
+                >Estado
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="fornecedor"
-                name="fornecedor"
+                id="estado"
+                name="estado"
                 required
               />
             </div>
 
             <div class="mb-3">
-              <p class="label-size">Novo/Usado</p>
+              <p class="label-size">Gênero</p>
               <input
                 type="radio"
-                name="novoUsado"
-                id="novo"
-                value="novo"
+                name="sexo"
+                id="masc"
+                value="Masculino"
                 checked
               />
-              <label for="novo">Novo</label>
+              <label for="masc">Masculino</label>
               <input
                 type="radio"
-                name="novoUsado"
-                id="usado"
+                name="sexo"
+                id="fem"
                 class="r"
-                value="usado"
+                value="Feminino"
               />
-              <label for="usado">Usado</label>
+              <label for="fem">Feminino</label>
             </div>
 
             <div class="form-group">
-              <label for="cor" class="label-size text-dark"
-                > Cor
+              <label for="endereco" class="label-size text-dark"
+                > Quem utilizou seus dados indevidamente?
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="cor"
-                name="cor"
+                id="quem"
+                name="quem"
                 required
               />
             </div>
 
             <div class="form-group">
-              <label for="tamanho" class="label-size text-dark"
-                > Tamanho
+              <label for="endereco" class="label-size text-dark"
+                > Qual dado?
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="tamanho"
-                name="tamanho"
+                id="qualDado"
+                name="qualDado"
                 required
               />
             </div>
@@ -155,7 +165,7 @@
                   class="btn btn-outline-dark mr-2"
                   onclick="validar()"
                 >
-                  Cadastrar
+                  Registrar
                 </button>
               </div>
             </div>
