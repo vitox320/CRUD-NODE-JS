@@ -57,13 +57,6 @@
               <label class="label-size mt-2" for="estado">Fornecedor </label>
               <input type="text" value="<%= details.fornecedor %>" class="form-control" id="fornecedor" name="fornecedor" >                
           </div>
-
-            <p class="label-size">Novo/Usado<br>
-              <input type="radio" name="novoUsado" id="novo" value="novo" checked>
-              <label class="ligh-label" for="novo">Novo</label>
-              <input type="radio" name="novoUsado" id="usado" class="r" value="usado">
-              <label class="ligh-label" for="usado">Usado</label>
-          </p>
         
             <div class="form-group">
                 <label class="label-size mt-2" for="quem">Cor  </label>
@@ -74,6 +67,13 @@
                 <label class="label-size mt-2" for="qualDado">Tamanho </label>
                 <input type="text" class="form-control" value="<%= details.tamanho %>" id="tamanho" name="tamanho" >                
             </div>
+
+            <p class="label-size">Novo/Usado<br>
+                <input type="radio" name="novoUsado" id="novo" value="novo" checked>
+                <label class="ligh-label" for="novo">Novo</label>
+                <input type="radio" name="novoUsado" id="usado" class="r" value="usado">
+                <label class="ligh-label" for="usado">Usado</label>
+            </p>
             
             <br>
             <button type="submit" class="btn btn-outline-dark">Salvar</button>
