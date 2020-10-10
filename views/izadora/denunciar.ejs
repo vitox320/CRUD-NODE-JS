@@ -7,8 +7,8 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-      crossorigin="anonymous"
-    />
+      crossorigin="anonymous"/>
+
     <title>CRUD COM NODE</title>
   </head>
   <style>
@@ -26,22 +26,22 @@
     }
   </style>
   <body class="grey-bg">
-    <%- include ("partialNavbar.ejs") %>  
+    <%- include ("..\\partialNavbar.ejs") %>  
     <header class="mb-5 mt-4">
-      <h1 style="text-align: center">Seja bem vindo ao nosso banco de dados</h1>
+      <h1 style="text-align: center">Se você teve seus dados usados de forma indevida,
+                                     registre aqui!</h1>
       <h3 style="text-align: center">
-        Precisamos coletar seus dados antes que a LGPD entre em vigor aqui no
-        Brasil
+        Conte-nos para que possamos tomar as devidas providências
       </h3>
       <h5 style="text-align: center">
-        Conosco suas informações continuarão seguras e rentaveis
+       Conosco suas informações continuarão seguras e rentaveis
       </h5>
       <h6 style="text-align: center">Registre-se</h6>
     </header>
 
     <div class="container mb-5">
       <div class="row justify-content-center">
-        <a href="show" class="btn btn-outline-dark">Ver todos os dados</a>
+        <a href="showDenuncias" class="btn btn-outline-dark">Veja todas as denuncias</a>
       </div>
     </div>
 
@@ -49,7 +49,14 @@
       <div class="row">
         <div class="col-lg-3 col-sm-2"></div>
         <section class="col-lg-6 col-sm-8 bg-blue p-4 rounded shadow">
-          <form action="/show" method="post">
+<<<<<<< HEAD:views/izadora/cadastrarProduto.ejs
+          <form action="/cadastrarProduto" method="post">
+
+            <div class="form-group">
+              <label for="nome" class="label-size text-dark">Produto</label>
+              <input type="text" class="form-control" id="produto" name="produto" required/>
+=======
+          <form action="/denunciar" method="post">
             <div class="form-group">
               <label for="nome" class="label-size text-dark">Nome</label>
               <input
@@ -59,8 +66,40 @@
                 name="nome"
                 required
               />
+>>>>>>> ian:views/izadora/denunciar.ejs
             </div>
+
             <div class="form-group">
+<<<<<<< HEAD:views/izadora/cadastrarProduto.ejs
+              <label for="descricao" class="label-size text-dark">Descrição </label>
+              <input type="text" class="form-control" name="descricao" id="descricao" required />
+            </div>
+
+            <div class="form-group">
+              <label for="quantidade" class="label-size text-dark">Quantidade </label>
+              <input type="number" class="form-control" id="quantidade" name="quantidade" required />
+            </div>
+
+            <div class="form-group">
+              <label for="precoUnitario" class="label-size text-dark" >Preço unitário </label>
+              <input type="number" min="0.01" class="form-control" id="precoUnitario" name="precoUnitario"
+              placeholder="R$ 999.990,00" required>
+            </div>
+             
+            <div class="form-group">
+              <label for="fornecedor" class="label-size text-dark" >Fornecedor </label>
+              <input type="text" class="form-control" id="fornecedor" name="fornecedor" required />
+            </div>
+
+            <div class="form-group">
+              <label for="cor" class="label-size text-dark" > Cor  </label>
+              <input type="text" class="form-control" id="cor" name="cor" required />
+            </div>
+
+            <div class="form-group">
+              <label for="tamanho" class="label-size text-dark" > Tamanho </label>
+              <input type="text" class="form-control" id="tamanho" name="tamanho" required />
+=======
               <label for="email" class="label-size text-dark">Email </label>
               <input
                 type="email"
@@ -100,31 +139,9 @@
             </div>
 
             <div class="form-group">
-              <label for="endereco" class="label-size text-dark"
-                >Endereço
+              <label for="telefone" class="label-size text-dark"
+                >Estado
               </label>
-              <input
-                type="text"
-                class="form-control"
-                id="endereco"
-                name="endereco"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="endereco" class="label-size text-dark">Cidade </label>
-              <input
-                type="text"
-                class="form-control"
-                id="cidade"
-                name="cidade"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="endereco" class="label-size text-dark">Estado </label>
               <input
                 type="text"
                 class="form-control"
@@ -154,14 +171,54 @@
               <label for="fem">Feminino</label>
             </div>
 
+            <div class="form-group">
+              <label for="endereco" class="label-size text-dark"
+                > Quem utilizou seus dados indevidamente?
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="quem"
+                name="quem"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="endereco" class="label-size text-dark"
+                > Qual dado?
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="qualDado"
+                name="qualDado"
+                required
+              />
+>>>>>>> ian:views/izadora/denunciar.ejs
+            </div>
+
+            <div class="mb-3">
+              <p class="label-size">Novo/Usado</p>
+              <input type="radio" name="novoUsado" id="novo" value="novo" checked />
+              <label for="novo">Novo</label>
+              <input type="radio" name="novoUsado" id="usado" class="r" value="usado" />
+              <label for="usado">Usado</label>
+            </div>
+
             <div class="container">
               <div class="row justify-content-end">
+<<<<<<< HEAD:views/izadora/cadastrarProduto.ejs
+                <button type="submit" class="btn btn-outline-dark mr-2" onclick="validar()" >
+                  Cadastrar
+=======
                 <button
                   type="submit"
                   class="btn btn-outline-dark mr-2"
                   onclick="validar()"
                 >
                   Registrar
+>>>>>>> ian:views/izadora/denunciar.ejs
                 </button>
               </div>
             </div>
