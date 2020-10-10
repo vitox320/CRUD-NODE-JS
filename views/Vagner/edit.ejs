@@ -1,0 +1,60 @@
+<%- include("componentes/header.ejs")%>
+    <title>Editar</title>
+
+    <%- include("componentes/menu.ejs")%>
+        <div class="container">
+            <div class="shadow p-5 my-5 bg-dark text-white col-sm">
+                <div class="row">
+                    <h2>Editar</h2>
+                    <% data.forEach(function(details) {%>
+                        <form action="/edita/<%=details._id %>" method="POST">
+                            <div class="form group row">
+                                <div class="col-md-4">
+                                    <label for="text">Nome</label>
+                                    <input type="text" class="form-control" value="<%=details.nome %>" name="nome" required maxlength="10">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="text">Sobrenome</label>
+                                    <input type="text" class="form-control" value="<%=details.sobrenome %>" name="sobrenome" required maxlength="10">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="text">CPF</label>
+                                    <input type="text" class="form-control" value="<%=details.cpf %>" name="cpf" required data-mask="000.000.000-00" data-mask-clearifnotmatch="true">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="text">email</label>
+                                    <input type="text" class="form-control" value="<%=details.email %>" name="email" required maxlength="30">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="text">Telefone</label>
+                                    <input type="text" class="form-control" value="<%=details.telefone %>" name="telefone" required data-mask="(00) 0 0000-0000" data-mask-clearifnotmatch="true">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="text">Instituição</label>
+                                    <input type="text" class="form-control" value="<%=details.instituicao %>" name="instituicao" required maxlength="10">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="text">Curso</label>
+                                    <input type="text" class="form-control" value="<%=details.curso %>" name="curso" required maxlength="25">
+                                </div>
+
+                                <div class="col-md-4">
+                                    <label for="text">Semestre</label>
+                                    <input type="number" min="1" max="10" class="form-control" value="<%=details.semestre %>" name="semestre" required>
+                                </div>
+                            </div>
+                            </br>
+                            <a class="btn btn- mr-2 justify-content badge-light" href="/listagem" type="submit">Voltar</a>
+                            <button class="btn badge-light" type="submit">Salvar</button>
+                        </form>
+                        <% })%>
+                </div>
+            </div>
+        </div>
+        <%- include("componentes/footer.ejs")%>
