@@ -1,60 +1,79 @@
-<%- include("componentes/header.ejs")%>
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
     <title>Editar</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<header>
+    <h3>
+        <div class="p-1 mb-2 bg-dark text-white">
+            <p class="text-light">Editar</p>
+        </div>
+    </h3>
+</header>
 
-    <%- include("componentes/menu.ejs")%>
-        <div class="container">
-            <div class="shadow p-5 my-5 bg-dark text-white col-sm">
-                <div class="row">
-                    <h2>Editar</h2>
-                    <% data.forEach(function(details) {%>
-                        <form action="/edita/<%=details._id %>" method="POST">
-                            <div class="form group row">
-                                <div class="col-md-4">
-                                    <label for="text">Nome</label>
-                                    <input type="text" class="form-control" value="<%=details.nome %>" name="nome" required maxlength="10">
-                                </div>
+<body class="text-center">
+    <div class="container">
+        <div class="col-sm">
+            <div class="badge-light p-1 mb-5">
+                <div class="p-5 mb-2 bg-dark text-white">
+                    <div class="row">
+                        <% data.forEach(function(details) {%>
+                            <form action="/edita/<%=details._id %>" method="POST">
+                                <div class="form group row">
+                                    <div class="col-md-4">
+                                        <label for="text">Nome</label>
+                                        <input type="text" class="form-control" value="<%=details.nome %>" name="nome">
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="text">Sobrenome</label>
-                                    <input type="text" class="form-control" value="<%=details.sobrenome %>" name="sobrenome" required maxlength="10">
-                                </div>
+                                    <div class="col-md-4">
+                                        <label for="text">Sobrenome</label>
+                                        <input type="text" class="form-control" value="<%=details.sobrenome %>" name="sobrenome">
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="text">CPF</label>
-                                    <input type="text" class="form-control" value="<%=details.cpf %>" name="cpf" required data-mask="000.000.000-00" data-mask-clearifnotmatch="true">
-                                </div>
+                                    <div class="col-md-4">
+                                        <label for="text">CPF</label>
+                                        <input type="text" class="form-control" value="<%=details.cpf %>" name="cpf">
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="text">email</label>
-                                    <input type="text" class="form-control" value="<%=details.email %>" name="email" required maxlength="30">
-                                </div>
+                                    <div class="col-md-4">
+                                        <label for="text">email</label>
+                                        <input type="text" class="form-control" value="<%=details.email %>" name="email">
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="text">Telefone</label>
-                                    <input type="text" class="form-control" value="<%=details.telefone %>" name="telefone" required data-mask="(00) 0 0000-0000" data-mask-clearifnotmatch="true">
-                                </div>
+                                    <div class="col-md-4">
+                                        <label for="text">Telefone</label>
+                                        <input type="text" class="form-control" value="<%=details.telefone %>" name="telefone">
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="text">Instituição</label>
-                                    <input type="text" class="form-control" value="<%=details.instituicao %>" name="instituicao" required maxlength="10">
-                                </div>
+                                    <div class="col-md-4">
+                                        <label for="text">Instituição</label>
+                                        <input type="text" class="form-control" value="<%=details.instituicao %>" name="instituicao">
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="text">Curso</label>
-                                    <input type="text" class="form-control" value="<%=details.curso %>" name="curso" required maxlength="25">
-                                </div>
+                                    <div class="col-md-4">
+                                        <label for="text">Curso</label>
+                                        <input type="text" class="form-control" value="<%=details.curso %>" name="curso">
+                                    </div>
 
-                                <div class="col-md-4">
-                                    <label for="text">Semestre</label>
-                                    <input type="number" min="1" max="10" class="form-control" value="<%=details.semestre %>" name="semestre" required>
+                                    <div class="col-md-4">
+                                        <label for="text">Semestre</label>
+                                        <input type="text" class="form-control" value="<%=details.semestre %>" name="semestre">
+                                    </div>
                                 </div>
-                            </div>
-                            </br>
-                            <a class="btn btn- mr-2 justify-content badge-light" href="/listagem" type="submit">Voltar</a>
-                            <button class="btn badge-light" type="submit">Salvar</button>
-                        </form>
-                        <% })%>
+                                </br>
+                                <a class="btn btn- mr-2 justify-content badge-light" href="/listagem" type="submit">Voltar</a>
+                                <button class="btn badge-light" type="submit">Salvar</button>
+                            </form>
+                            <% })%>
+                    </div>
                 </div>
             </div>
         </div>
-        <%- include("componentes/footer.ejs")%>
+    </div>
+</body>
+
+</html>
