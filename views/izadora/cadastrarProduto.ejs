@@ -44,117 +44,54 @@
         <div class="col-lg-3 col-sm-2"></div>
         <section class="col-lg-6 col-sm-8 bg-blue p-4 rounded shadow">
           <form action="/cadastrarProduto" method="post">
+
             <div class="form-group">
               <label for="nome" class="label-size text-dark">Produto</label>
-              <input
-                type="text"
-                class="form-control"
-                id="produto"
-                name="produto"
-                required
-              />
+              <input type="text" class="form-control" id="produto" name="produto" required/>
             </div>
+
             <div class="form-group">
               <label for="descricao" class="label-size text-dark">Descrição </label>
-              <input
-                type="text"
-                class="form-control"
-                name="descricao"
-                id="descricao"
-                required
-              />
+              <input type="text" class="form-control" name="descricao" id="descricao" required />
             </div>
 
             <div class="form-group">
               <label for="cpf" class="label-size text-dark">Quantidade </label>
-              <input
-                type="text"
-                class="form-control"
-                id="quantidade"
-                name="quantidade"
-                required
-              />
+              <input type="text" class="form-control" id="quantidade" name="quantidade" required />
             </div>
 
             <div class="form-group">
-              <label for="precoUnitario" class="label-size text-dark"
-                >Preço unitário
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="precoUnitario"
-                name="precoUnitario"
-                required
-              />
+              <label for="precoUnitario" class="label-size text-dark" >Preço unitário </label>
+              <input type="text" class="form-control" id="precoUnitario" name="precoUnitario"
+              placeholder="R$ 999.990,00" required>
             </div>
 
             <div class="form-group">
-              <label for="fornecedor" class="label-size text-dark"
-                >Fornecedor
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="fornecedor"
-                name="fornecedor"
-                required
-              />
+              <label for="fornecedor" class="label-size text-dark" >Fornecedor </label>
+              <input type="text" class="form-control" id="fornecedor" name="fornecedor" required />
             </div>
 
             <div class="mb-3">
               <p class="label-size">Novo/Usado</p>
-              <input
-                type="radio"
-                name="novoUsado"
-                id="novo"
-                value="novo"
-                checked
-              />
+              <input type="radio" name="novoUsado" id="novo" value="novo" checked />
               <label for="novo">Novo</label>
-              <input
-                type="radio"
-                name="novoUsado"
-                id="usado"
-                class="r"
-                value="usado"
-              />
+              <input type="radio" name="novoUsado" id="usado" class="r" value="usado" />
               <label for="usado">Usado</label>
             </div>
 
             <div class="form-group">
-              <label for="cor" class="label-size text-dark"
-                > Cor
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="cor"
-                name="cor"
-                required
-              />
+              <label for="cor" class="label-size text-dark" > Cor  </label>
+              <input type="text" class="form-control" id="cor" name="cor" required />
             </div>
 
             <div class="form-group">
-              <label for="tamanho" class="label-size text-dark"
-                > Tamanho
-              </label>
-              <input
-                type="text"
-                class="form-control"
-                id="tamanho"
-                name="tamanho"
-                required
-              />
+              <label for="tamanho" class="label-size text-dark" > Tamanho </label>
+              <input type="text" class="form-control" id="tamanho" name="tamanho" required />
             </div>
 
             <div class="container">
               <div class="row justify-content-end">
-                <button
-                  type="submit"
-                  class="btn btn-outline-dark mr-2"
-                  onclick="validar()"
-                >
+                <button type="submit" class="btn btn-outline-dark mr-2" onclick="validar()" >
                   Cadastrar
                 </button>
               </div>
