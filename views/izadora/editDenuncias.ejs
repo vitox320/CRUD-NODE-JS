@@ -58,6 +58,7 @@
               <label class="label-size mt-2" for="estado">Estado </label>
               <input type="text" value="<%= details.estado %>" class="form-control" id="estado" name="estado" >                
           </div>
+<<<<<<< HEAD:views/izadora/editDenuncias.ejs
 
             <p class="label-size">Gênero<br>
               <input type="radio" name="sexo" id="masc" value="Masculino" checked>
@@ -65,6 +66,8 @@
               <input type="radio" name="sexo" id="fem" class="r" value="Feminino">
               <label class="ligh-label" for="fem">Feminino</label>
           </p>
+=======
+>>>>>>> f294f445f0c73606d587c540dc03dd65c50db793:views/izadora/editProduto.ejs
         
             <div class="form-group">
                 <label class="label-size mt-2" for="quem">Quem  </label>
@@ -75,6 +78,13 @@
                 <label class="label-size mt-2" for="qualDado">Qual dado  </label>
                 <input type="text" class="form-control" value="<%= details.qualDado %>" id="qualDado" name="qualDado" >                
             </div>
+
+            <p class="label-size">Novo/Usado<br>
+                <input type="radio" name="novoUsado" id="novo" value="novo" checked>
+                <label class="ligh-label" for="novo">Novo</label>
+                <input type="radio" name="novoUsado" id="usado" class="r" value="usado">
+                <label class="ligh-label" for="usado">Usado</label>
+            </p>
             
             <br>
             <a href="/showDenuncias" class="btn btn-outline-dark">Todos</a>
