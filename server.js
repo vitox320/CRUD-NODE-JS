@@ -458,3 +458,85 @@ app.route('/excluir/:id').get((req, res) => {
 app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
+
+
+
+//--------------------config (Ian) ---------------------
+
+app.get("/cursos", (req, res) => {
+    res.render('ian/index.ejs')
+    let cursor = db.collection('curso').find()
+})
+
+
+app.get("/consultacursos", (req, res) => {
+    db.collection('curso').find().toArray((err, results) => {
+        if (err) return console.log(err)
+        res.render('ian/show.ejs', { data: results })
+
+    })
+})
+
+app.post("/consultacursos", (req, res) => {
+
+    db.collection('curso').save(req.body, (err, result) => {
+        if (err) return console.log(err)
+
+        console.log('Aluno Cadastrado com Sucesso')
+        res.redirect('/consultacursos')
+
+    })
+
+})
+
+app.route("/atualizar/:id")
+    .get((req, res) => {
+        let id = req.params.id
+
+        db.collection('curso').find(ObjectId(id)).toArray((err, result) => {
+            if (err) return res.send(err)
+            res.render('ian/edit.ejs', { data: result })
+        })
+    })
+    .post((req, res) => {
+        let id = req.params.id
+        let name = req.body.nome
+        let email1 = req.body.email
+        let cpf1 = req.body.cpf
+        let telefone1 = req.body.telefone
+        let curso1 = req.body.curso
+        let turno1 = req.body.turno
+        let responsavel1 = req.body.responsavel
+        let sexo1 = req.body.sexo
+
+        db.collection('curso').updateOne({ _id: ObjectId(id) }, {
+
+            $set: {
+                nome: name,
+                email: email1,
+                cpf: cpf1,
+                telefone: telefone1,
+                curso: curso1,
+                turno: turno1,
+                responsavel: responsavel1,
+                sexo: sexo1
+            }
+        }, (err, result) => {
+            if (err) return res.send(err)
+            res.redirect('/consultacursos')
+            console.log('Dados Atualizados com Sucesso')
+
+        })
+    })
+
+app.route('/exclui/:id')
+    .get((req, res) => {
+        let id = req.params.id
+
+        db.collection('curso').deleteOne({ _id: ObjectId }, (err, result) => {
+            if (err) return res.send(500, err)
+            console.log('Aluno Deletado')
+            res.redirect('/consultacursos')
+        })
+    })
+//-------------------- fim da config (Ian) ---------------------
