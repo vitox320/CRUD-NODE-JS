@@ -459,7 +459,85 @@ app.listen(3000, () => {
   console.log("Servidor rodando na porta 3000");
 });
 
+//--------------------config (Robson) ---------------------
 
+app.get("/Robson", (req, res) => {
+  res.render('robson/Cadastramento.ejs')
+  let cursor = db.collection('sus').find()
+})
+
+
+app.get("/showSus", (req, res) => {
+  db.collection('sus').find().toArray((err, results) => {
+      if (err) return console.log(err)
+      res.render('robson/showSUS.ejs', { data: results })
+
+  })
+})
+
+app.post("/showSus", (req, res) => {
+
+  db.collection('sus').save(req.body, (err, result) => {
+      if (err) return console.log(err)
+
+      console.log('Recadastramento realizado com sucesso.')
+      res.redirect('/showsus')
+
+  })
+
+})
+
+app.route("/editsus/:id")
+  .get((req, res) => {
+      let id = req.params.id
+
+      db.collection('sus').find(ObjectId(id)).toArray((err, result) => {
+          if (err) return res.send(err)
+          res.render('robson/EditSUS.ejs', { data: result })
+      })
+  })
+  .post((req, res) => {
+      let id = req.params.id
+      let nome1 = req.body.nome
+      let sobrenome1 = req.body.sobrenome
+      let cpf1 = req.body.cpf
+      let telefone1 = req.body.telefone
+      let email1 = req.body.email
+      let rg1 = req.body.rg
+      let cartao1 = req.body.cartao
+      let endereco1 = req.body.endereco
+
+      db.collection('sus').updateOne({ _id: ObjectId(id) }, {
+
+          $set: {
+              nome: nome1,
+              email: email1,
+              cpf: cpf1,
+              telefone: telefone1,
+              sobrenome: sobrenome1,
+              endereco1: endereco1,
+              cartao: cartao1,
+              rg: rg1
+          }
+      }, (err, result) => {
+          if (err) return res.send(err)
+          res.redirect('/showSus')
+          console.log('Dados atualizados')
+
+      })
+  })
+
+app.route('/deletesus/:id')
+  .get((req, res) => {
+      let id = req.params.id
+
+      db.collection('sus').deleteOne({ _id: ObjectId }, (err, result) => {
+          if (err) return res.send(500, err)
+          console.log('Cadastro Deletado')
+          res.redirect('/showSus')
+      })
+  })
+//-------------------- fim da config (Robson) ---------------------
 
 //--------------------config (Ian) ---------------------
 
