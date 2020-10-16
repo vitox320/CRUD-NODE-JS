@@ -39,41 +39,42 @@
                 <input type="text" class="form-control" value="<%= details.produto %>" id="produto" name="produto" >                
             </di>           
             <div class="form-group">
-                <label class="label-size mt-3" for="preco">Descrição</label>
+                <label class="label-size mt-3" for="descricao">Descrição</label>
                 <input type="text" class="form-control" value="<%= details.descricao %>" id="descricao" name="descricao">
             </div>
 
             <div class="form-group">
-                <label class="label-size mt-1" class="label-size mt-3" for="cpf">Quantidade</label>
-                <input type="text" value="<%= details.quantidade %>" class="form-control" id="quantidade" name="quantidade">                
+                <label class="label-size mt-1" class="label-size mt-3" for="quantidade">Quantidade</label>
+                <input type="number" value="<%= details.quantidade %>" class="form-control" id="quantidade" name="quantidade">                
             </div>         
         
             <div class="form-group">
-                <label class="label-size mt-2" for="precoUnitario">preço unitário </label>
-                <input type="text" value="<%= details.precoUnitario %>" class="form-control" id="precoUnitario" name="precoUnitario" >                
+                <label class="label-size mt-2" for="precoUnitario">Preço unitário </label>
+                <input type="number" value="<%= details.precoUnitario %>" class="form-control" id="precoUnitario" name="precoUnitario" >                
             </div>
 
             <div class="form-group">
-              <label class="label-size mt-2" for="estado">Fornecedor </label>
+              <label class="label-size mt-2" for="fornecedor">Fornecedor </label>
               <input type="text" value="<%= details.fornecedor %>" class="form-control" id="fornecedor" name="fornecedor" >                
           </div>
-
-            <p class="label-size">Novo/Usado<br>
-              <input type="radio" name="novoUsado" id="novo" value="novo" checked>
-              <label class="ligh-label" for="novo">Novo</label>
-              <input type="radio" name="novoUsado" id="usado" class="r" value="usado">
-              <label class="ligh-label" for="usado">Usado</label>
-          </p>
         
             <div class="form-group">
-                <label class="label-size mt-2" for="quem">Cor  </label>
+                <label class="label-size mt-2" for="cor">Cor  </label>
                 <input type="text" class="form-control" value="<%= details.cor %>" id="cor" name="cor" >                
             </div>
 
             <div class="form-group">
-                <label class="label-size mt-2" for="qualDado">Tamanho </label>
+                <label class="label-size mt-2" for="tamanho">Tamanho </label>
                 <input type="text" class="form-control" value="<%= details.tamanho %>" id="tamanho" name="tamanho" >                
             </div>
+
+            <p class="label-size">Novo/Usado<br>
+                <input type="radio" name="novoUsado" id="novo" value="novo" checked>
+                <label class="ligh-label" for="novo">Novo</label>
+                
+                <input type="radio" name="novoUsado" id="usado" class="r" value="usado">
+                <label class="ligh-label" for="usado">Usado</label>
+            </p>
             
             <br>
             <button type="submit" class="btn btn-outline-dark">Salvar</button>
